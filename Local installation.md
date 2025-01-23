@@ -93,6 +93,10 @@ Now you should install the official [Docker Desktop](https://docs.docker.com/des
 Launch the *localhost:8080* on your browser, and you will see Auth. page: 
 ![ Authorization page ](https://i.postimg.cc/DzFzL73n/12-auth-screen.png)
 
+Log in **not with** Domain Credentials, but enter Email and corresponding Password users with admin permission. It might be **it-service** user.
+After that you will have access to your local CRM system:
+![ main page ](https://i.postimg.cc/XNRhL8Q7/13-crm-main-page.png)
+
 # Corteza-vue
 
 
