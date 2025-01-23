@@ -1,5 +1,4 @@
 
-
 # About 
 ## <div style="display:flex; alight-item: center"><p> ///About <span ><img src="https://i.postimg.cc/sgQHZgQL/inteco.png" alt="Inteco"></span></p></div>
 
@@ -8,7 +7,7 @@ This is a manual, how quickly and easy to run your local Corteza server without 
 
 # Setting up the local project
 
-##  Copying a Project locally 
+##  Copying a Docker Server locally 
 Via ***WinSCP***  connect to the server where "*Corteza_app*" is located. 
 Move to the ***root*** folder and then you will finally see Corteza project.
 Copy and then paste anywhere on your local Laptop. Now, according to 
@@ -22,40 +21,80 @@ Copy and then paste anywhere on your local Laptop. Now, according to
 Your docker-compose.yaml file supposed to be looked like: 
 ![docker file](https://i.postimg.cc/Gp2LDNnt/2-docker-file.png)
 
-***Important*:**
-> The version may differ from template above.
+***Important:***
+**`The version may differ from template above.`**
 
-In docker-compose.yaml we will have to add more files into ***volumes*** . More about it you could reed in the last topic ///[here is topic](#topic-name)
+In docker-compose.yaml we will also have to mount more files into ***volumes*** . More about it you could see here ///[here is topic](#topic-name)
 
 You will have to uncomment this line:
->VIRTUAL_HOST: localhost:8080
+
+	VIRTUAL_HOST: localhost:8080
 
 Now it looks like: 
 ![uncomment the VIRTUAL_HOST](https://i.postimg.cc/kGhZkjh1/3-docker-uncommented.png)
 
 ## Configure .env
 
-![.env file](https://i.postimg.cc/pXCYXhWv/4-env-file.png)
-## Switch to another file
+![.env file](https://i.postimg.cc/6pKR7rHm/4-env-file.png)
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
+***Important:***
+**`The version may differ from template above.`**
 
-## Rename a file
+### 1. Domain
+Change **DOMAIN** on the localhost, that you already set up in the ***docker-compose.yaml*** 
+ *(by default is expected as 8080)* and should look like: 
+![domain](https://i.postimg.cc/XNdSwYTt/5-domain.png)
 
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
+### 2. Database
 
-## Delete a file   
+Copy of production Data Base should be configured locally via **pgAdmin 4**
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+***Important:***
+**`Make sure that the PostgreSQL version on local laptop versions and PostgreSQL database version are matched.`**
 
-## Export a file
+After successful restoration of the database on the local laptop. 
+Check, if database is ready to be connected to docker server due to this command on CMD: 
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+	pg_isready   
 
+Successful output will look like that: 
+![cmd output](https://i.postimg.cc/zG1Zfbpx/6-cmd-output.png)
 
-# Synchronization
+We can also connect to Database via **pg_Admin 4** or **CMD** (In this example via CMD) to ensure that all data were fetched correctly.
+Enter the command, that is below and connect as *"postgres"* user to database (**database name may be different, check pgAdmin 4**)
+![connection to Database](https://i.postimg.cc/7h8MnvBD/7-connection-to-DB.png)
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+Then, enter database password (by default is: "1234" or "0000") .
+And now we can receive, for example, the user "Corteza Service" or any other that exists in the DB.
+If the output looks like this, the database data was retrieved successfully:
+![data output](https://i.postimg.cc/qq7tVjDS/7-data-output.png)
+
+### Setting up the *DB_DSN* value in .env
+Replace underlined values on your local:
+ - user (username of database, by default is "postgres");
+ - password (database password, by default is "1234" or "0000");
+ - database (database name).
+  
+![ configure DB_DSN ](https://i.postimg.cc/CKB5NRnT/9-configure-connection-to-DB.png)
+
+It might look like this: 
+![ example DB_DSN ](https://i.postimg.cc/8CK31CZ5/10-exemple-DB-DSN.png)
+
+### 3. Authorization
+As in the [Domain](#domain) settings, **AUTH_BASE_URL** should be changed on the *localhost*, that you set already up in Domain and docker-compose.yaml (VIRTUAL_HOST).
+
+![ example DB_DSN ](https://i.postimg.cc/kgXBVnQ8/11-auth-value.png)
+
+# Running docker server
+Now you should install the official [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/) and then inside your `corteza` directory (next to your `docker-compose.yaml` and `.env` files), run the docker compose, due to command: 
+	
+	docker-compose up -d
+
+Launch the *localhost:8080* on your browser, and you will see Auth. page: 
+![ Authorization page ](https://i.postimg.cc/DzFzL73n/12-auth-screen.png)
+
+# Corteza-vue
+
 
 There are two types of synchronization and they can complement each other:
 
