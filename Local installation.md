@@ -41,8 +41,9 @@ Your docker-compose.yaml file supposed to be looked like:
 In docker-compose.yaml we will also have to mount more files into ***volumes*** . More about it you could see <a  href="#setting-up-volumes-in-docker-composeyaml">here</a>
 
 You will have to uncomment this line:
-
-	VIRTUAL_HOST: localhost:8080
+```bash
+VIRTUAL_HOST: localhost:8080
+```
 
 Now it looks like: 
 ![uncomment the VIRTUAL_HOST](https://i.postimg.cc/kGhZkjh1/3-docker-uncommented.png)
@@ -68,9 +69,9 @@ Copy of production Data Base should be configured locally via **pgAdmin 4**
 
 After successful restoration of the database on the local laptop. 
 Check, if database is ready to be connected to docker server due to this command on CMD: 
-
-	pg_isready   
-
+```bash
+pg_isready   
+```
 Successful output will look like that: 
 ![cmd output](https://i.postimg.cc/zG1Zfbpx/6-cmd-output.png)
 
@@ -101,26 +102,37 @@ As in the <a  href="#1-domain">Domain</a>  settings, **AUTH_BASE_URL** should be
 
 # Running docker server
 Now you should install the official [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/) and then inside your `corteza` directory (next to your `docker-compose.yaml` and `.env` files), run the docker compose, due to command: 
-	
-	docker-compose up -d
-
+```bash	
+docker-compose up -d
+```
 Launch the *localhost:8080* on your browser, and you will see Auth. page: 
 ![ Authorization page ](https://i.postimg.cc/DzFzL73n/12-auth-screen.png)
 
-***!***
-**`To run down the server use the command:`**
 
-	docker-compose down
-
+**!`To run down the server use the command:`**
+```bash
+docker-compose down
+```
 Log in **not with** Domain Credentials, but enter Email and corresponding Password users with admin permission. It might be **it-service** user.
 After that you will have access to your local CRM system:
 ![ main page ](https://i.postimg.cc/XNRhL8Q7/13-crm-main-page.png)
 
 # Corteza-vue
 ## Bit bucket
+Corteza-vue project may look like: 
+<p align="center">
+<img src="https://i.postimg.cc/52NLRHZ2/14-structure-vue-corteza.png" alt="HTML tutorial" style="width:42px;height:42px;">  
+</p>
+
 ## Setting up node and updating packages 
+Every one directory inside your `corteza-vue project` is **a separate local project** , that are supposed to be run independently  *on different localhosts*, for this reason we have to configure every project (admin, compose, etc.) **alone** but on **the same** way.	
+
 ### config.js
-C
+Lat's set up for example **Admin** "project", other projects could be set up the same as this one. Inside `admin` directory move on **`public`** folder and create over there  **`config.js`** file.  Add into this file this code: 
+```javascript
+window.CortezaAPI = 'http://localhost:8080/api'
+```
+**!`To run down the server use the command:`**
 ### node
 ### building 
 ## Setting up volumes in docker-compose.yaml
