@@ -121,7 +121,7 @@ After that you will have access to your local CRM system:
 ## Bit bucket
 Corteza-vue project may look like: 
 <p align="center">
-<img src="https://i.postimg.cc/52NLRHZ2/14-structure-vue-corteza.png" alt="HTML tutorial" style="width:42px;height:42px;">  
+<img src="https://i.postimg.cc/52NLRHZ2/14-structure-vue-corteza.png" alt="HTML tutorial">  
 </p>
 
 ## Setting up node and updating packages 
