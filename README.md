@@ -107,8 +107,7 @@ Now you should install the official [Docker Desktop](https://docs.docker.com/des
 Launch the *localhost:8080* on your browser, and you will see Auth. page: 
 ![ Authorization page ](https://i.postimg.cc/DzFzL73n/12-auth-screen.png)
 
-***!***
-**`To run down the server use the command:`**
+**!`To run down the server use the command:`**
 
 	docker-compose down
 
