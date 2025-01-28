@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://i.postimg.cc/sgQHZgQL/inteco.png" />
+  <img src="https://i.postimg.cc/FKfmF4fQ/inteco.png" />
 </p>
-<h3  align="center">Quick Starting Corteza Local Server</h3>
+<h3  align="center">A quick guide to running a local Corteza server</h3>
 <p align="center">
 <a  href="https://devccrm.inteco.at/auth/login">Production</a>
 &middot;
@@ -29,31 +29,46 @@ Move to the ***root*** folder and then you will finally see Corteza project.
 Copy and then paste anywhere on your local Laptop. Now, according to 
 [official Corteza guide](https://docs.cortezaproject.org/corteza-docs/2024.9/devops-guide/#deploy-offline), File Structure should look like: 
 
-![file structure](https://i.postimg.cc/HsLwPWmk/1-file-structure.png)
+![file structure](https://i.postimg.cc/GpswwxNL/1-file-structure.png)
 
 
 
 ## Configure docker-compose.yaml
 
 Your docker-compose.yaml file supposed to be looked like: 
-![docker file](https://i.postimg.cc/Gp2LDNnt/2-docker-file.png)
+![docker file](https://i.postimg.cc/sfJFrXnh/2-docker-file.png)
 
 ***Important:***
 **`The version may differ from template above.`**
 
-In docker-compose.yaml we will also have to mount more files into ***volumes*** . More about it you could see <a  href="#setting-up-volumes-in-docker-composeyaml">here</a>
+### Mounting the volumes
+
+In docker-compose.yaml we also have to mount more files into ***volumes*** . 
+
+***Recommendation:***
+***`Come to this step after`<a  href="#building">`building`</a>`the project`***
+You have to mount all dependencies from **`dist`** folders of all projects (admin, compose, etc.). 
+Sample for admin index.html:
+```bash
+"path-to-corteza-vue/admin/dist:/corteza/webapp/admin/index.html"
+```
+For all folders it may look like:
+![mounted dependencies](https://i.postimg.cc/9MFMYS08/17-docker-compose-should-be-3.png)
+
+### VIRTUAL_HOST
 
 You will have to uncomment this line:
 ```bash
 VIRTUAL_HOST: localhost:8080
 ```
 
-Now it looks like: 
-![uncomment the VIRTUAL_HOST](https://i.postimg.cc/kGhZkjh1/3-docker-uncommented.png)
+Now it looks like:
+
+![uncomment the VIRTUAL_HOST](https://i.postimg.cc/fRJ1mvMc/3-docker-uncomment.png)
 
 ## Configure .env
 
-![.env file](https://i.postimg.cc/6pKR7rHm/4-env-file.png)
+![.env file](https://i.postimg.cc/HLMKPscj/4-env-file.png)
 
 ***Important:***
 **`The version may differ from template above.`**
@@ -62,7 +77,7 @@ Now it looks like:
 
 Change **DOMAIN** on the localhost, that you already set up in the ***docker-compose.yaml*** 
  *(by default is expected as 8080)* and should look like: 
-![domain](https://i.postimg.cc/XNdSwYTt/5-domain.png)
+![domain](https://i.postimg.cc/RFQY4sTB/5-domain.png)
 
 ### 2. Database
 
@@ -77,16 +92,16 @@ Check, if database is ready to be connected to docker server due to this command
 pg_isready   
 ```
 Successful output will look like that: 
-![cmd output](https://i.postimg.cc/zG1Zfbpx/6-cmd-output.png)
+![cmd output](https://i.postimg.cc/rsfYtDbZ/6-cmd-output.png)
 
 We can also connect to Database via **pg_Admin 4** or **CMD** (In this example via CMD) to ensure that all data were fetched correctly.
 Enter the command, that is below and connect as *"postgres"* user to database (**database name may be different, check pgAdmin 4**)
-![connection to Database](https://i.postimg.cc/7h8MnvBD/7-connection-to-DB.png)
+![connection to Database](https://i.postimg.cc/3x4bdJZ9/7-connection-to-DB.png)
 
 Then, enter database password (by default is: "1234" or "0000") .
 And now we can receive, for example, the user "Corteza Service" or any other that exists in the DB.
 If the output looks like this, the database data was retrieved successfully:
-![data output](https://i.postimg.cc/qq7tVjDS/7-data-output.png)
+![data output](https://i.postimg.cc/B6shY5fw/8-data-output.png)
 
 ### Setting up the *DB_DSN* value in .env
 
@@ -95,16 +110,16 @@ Replace underlined values on your local:
  - password (database password, by default is "1234" or "0000");
  - database (database name).
   
-![ configure DB_DSN ](https://i.postimg.cc/CKB5NRnT/9-configure-connection-to-DB.png)
+![ configure DB_DSN ](https://i.postimg.cc/HnvBkfcf/9-configure-connection-to-DB.png)
 
 It might look like this: 
-![ example DB_DSN ](https://i.postimg.cc/8CK31CZ5/10-exemple-DB-DSN.png)
+![ example DB_DSN ](https://i.postimg.cc/k41xQWJS/10-exemple-DB-DSN.png)
 
 ### 3. Authorization
 
 As in the <a  href="#1-domain">Domain</a>  settings, **AUTH_BASE_URL** should be changed on the *localhost*, that you set already up in Domain and docker-compose.yaml (VIRTUAL_HOST).
 
-![ example DB_DSN ](https://i.postimg.cc/kgXBVnQ8/11-auth-value.png)
+![ example DB_DSN ](https://i.postimg.cc/L5GL7RZ6/11-auth-value.png)
 
 # Running docker server
 
@@ -113,14 +128,14 @@ Now you should install the official [Docker Desktop](https://docs.docker.com/des
 docker-compose up -d
 ```
 Launch the *localhost:8080* on your browser, and you will see Auth. page: 
-![ Authorization page ](https://i.postimg.cc/DzFzL73n/12-auth-screen.png)
+![ Authorization page ](https://i.postimg.cc/vH6Wn1p1/12-auth-screen.png)
 
 ***Tip:***
 *Use the docker commands according [the official documentation](https://docs.docker.com/reference/cli/docker/compose/)*
 
 Log in **not with** Domain Credentials, but enter Email and corresponding Password users with admin permission. It might be **it-service** user.
 After that you will have access to your local CRM system:
-![ main page ](https://i.postimg.cc/XNRhL8Q7/13-crm-main-page.png)
+![ main page ](https://i.postimg.cc/8cfrL3n8/13-crm-main-page.png)
 
 # Corteza-vue
 
@@ -176,12 +191,12 @@ npm istall
 
 ### building 
 
-To build a project, a part of which will be mounted in docker production server, use: 
+To build a project, a part of which will be mounted in docker server, use: 
 ```bash	
 npm run build
 ```
-
-## Setting up volumes in docker-compose.yaml
+Now **`dist`** folder has been updated. All compiled code used by the docker for frontend rendering is located here.
+![ folder after built project](https://i.postimg.cc/C5XWdZ9C/16-after-building.png)
 
 
 
