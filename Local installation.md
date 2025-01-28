@@ -1,8 +1,9 @@
 <p align="center">
   <img src="https://i.postimg.cc/sgQHZgQL/inteco.png" />
 </p>
-<center style="margin-top: 0;"><b><h3>Quick Starting Corteza Local Server</h3></b></center>
+<h3  align="center">Quick Starting Corteza Local Server</h3>
 <center><a href="https://devccrm.inteco.at/auth/login">Production</a> · <a href="https://docs.cortezaproject.org/corteza-docs/2023.9/devops-guide/index.html">Corteza Documentation</a> · <a href="https://releases.cortezaproject.org/files/">Releases</a></center>
+
 
 
 # About
