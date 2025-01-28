@@ -1,6 +1,13 @@
+<p align="center">
+  <img src="https://i.postimg.cc/sgQHZgQL/inteco.png" />
+</p>
+<center style="margin-top: 0;"><b><h3>Quick Starting Corteza Local Server</h3></b></center>
+<center><a href="https://devccrm.inteco.at/auth/login">Production</a> · <a href="https://docs.cortezaproject.org/corteza-docs/2023.9/devops-guide/index.html">Corteza Documentation</a> · <a href="https://releases.cortezaproject.org/files/">Releases</a></center>
 
-# About 
-## <div style="display:flex; alight-item: center"><p> ///About <span ><img src="https://i.postimg.cc/sgQHZgQL/inteco.png" alt="Inteco"></span></p></div>
+
+# About
+This is a manual, how quickly and easy to run your local Corteza server without waste time. Follow exactly every step that are described bellow. This guide helps to run local environment for development and adding any futures that are necessary in Frontend with followed explanation of deployment to Production.
+
 
 This is a manual, how quickly and easy to run your local Corteza server without waste time. Follow exactly every step that are described bellow. This guide helps to run  local environment for development and adding any futures that are necessary in Frontend with followed explanation of deployment to Production.
 
@@ -24,7 +31,7 @@ Your docker-compose.yaml file supposed to be looked like:
 ***Important:***
 **`The version may differ from template above.`**
 
-In docker-compose.yaml we will also have to mount more files into ***volumes*** . More about it you could see here ///[here is topic](#topic-name)
+In docker-compose.yaml we will also have to mount more files into ***volumes*** . More about it you could see [here](#setting-up-volumes-in-docker-compose.yaml)
 
 You will have to uncomment this line:
 
@@ -93,121 +100,29 @@ Now you should install the official [Docker Desktop](https://docs.docker.com/des
 Launch the *localhost:8080* on your browser, and you will see Auth. page: 
 ![ Authorization page ](https://i.postimg.cc/DzFzL73n/12-auth-screen.png)
 
+***!***
+**`To run down the server use the command:`**
+
+	docker-compose down
+
 Log in **not with** Domain Credentials, but enter Email and corresponding Password users with admin permission. It might be **it-service** user.
 After that you will have access to your local CRM system:
 ![ main page ](https://i.postimg.cc/XNRhL8Q7/13-crm-main-page.png)
 
 # Corteza-vue
+## Bit bucket
+## Setting up node and updating packages 
+### config.js
+C
+### node
+### building 
+## Setting up volumes in docker-compose.yaml
+
+## sample of running local server
+
+# Links 
 
 
-There are two types of synchronization and they can complement each other:
-
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
-
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
-
-## Open a file
-
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
-
-## Save a file
-
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
-
-## Synchronize a file
-
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
-
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
-
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
-
-## Manage file synchronization
-
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
+Despite the fact that 
 
 
-# Publication
-
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
-
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
-
-## Publish a File
-
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
-
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
-
-## Update a publication
-
-After publishing, StackEdit keeps your file linked to that publication which makes it easy for you to re-publish it. Once you have modified your file and you want to update your publication, click on the **Publish now** button in the navigation bar.
-
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
-
-## Manage file publication
-
-Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
-
-
-# Markdown extensions
-
-StackEdit extends the standard Markdown syntax by adding extra **Markdown extensions**, providing you with some nice features.
-
-> **ProTip:** You can disable any **Markdown extension** in the **File properties** dialog.
-
-
-## SmartyPants
-
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
-
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-
-
-## KaTeX
-
-You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
-
-The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
-
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
-
-> Written with [StackEdit](https://stackedit.io/).
