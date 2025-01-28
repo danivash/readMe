@@ -38,7 +38,7 @@ Your docker-compose.yaml file supposed to be looked like:
 ***Important:***
 **`The version may differ from template above.`**
 
-In docker-compose.yaml we will also have to mount more files into ***volumes*** . More about it you could see [here](#setting-up-volumes-in-docker-compose.yaml)
+In docker-compose.yaml we will also have to mount more files into ***volumes*** . More about it you could see <a  href="#setting-up-volumes-in-docker-compose.yaml">here</a>
 
 You will have to uncomment this line:
 
@@ -95,7 +95,7 @@ It might look like this:
 ![ example DB_DSN ](https://i.postimg.cc/8CK31CZ5/10-exemple-DB-DSN.png)
 
 ### 3. Authorization
-As in the [Domain](#domain) settings, **AUTH_BASE_URL** should be changed on the *localhost*, that you set already up in Domain and docker-compose.yaml (VIRTUAL_HOST).
+As in the <a  href="#domain">Domain</a>  settings, **AUTH_BASE_URL** should be changed on the *localhost*, that you set already up in Domain and docker-compose.yaml (VIRTUAL_HOST).
 
 ![ example DB_DSN ](https://i.postimg.cc/kgXBVnQ8/11-auth-value.png)
 
