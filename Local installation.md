@@ -2,7 +2,13 @@
   <img src="https://i.postimg.cc/sgQHZgQL/inteco.png" />
 </p>
 <h3  align="center">Quick Starting Corteza Local Server</h3>
-<center><a href="https://devccrm.inteco.at/auth/login">Production</a> · <a href="https://docs.cortezaproject.org/corteza-docs/2023.9/devops-guide/index.html">Corteza Documentation</a> · <a href="https://releases.cortezaproject.org/files/">Releases</a></center>
+<p align="center">
+<a  href="https://devccrm.inteco.at/auth/login">Production</a>
+&middot;
+<a  href="https://docs.cortezaproject.org/corteza-docs/2023.9/devops-guide/index.html">Corteza Documentation</a>
+&middot;
+<a  href="https://releases.cortezaproject.org/files/">Releases</a>
+</p>
 
 
 
