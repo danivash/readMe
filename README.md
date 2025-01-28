@@ -155,7 +155,7 @@ Corteza-vue project may look like:
 <img src="https://i.postimg.cc/52NLRHZ2/14-structure-vue-corteza.png" alt="HTML tutorial">  
 </p>
 
-## Setting up node and updating packages 
+## Configure dependencies 
 
 Every one directory inside your `corteza-vue project` is **a separate local project** , that are supposed to be run independently  *on different localhosts*, for this reason we have to configure every project (admin, compose, etc.) **alone** but on **the same** way.	
 
