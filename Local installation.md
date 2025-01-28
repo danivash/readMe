@@ -147,15 +147,43 @@ According your current Corteza-vue version, you have to pay your attention to
 following dependencies:
 ![ dependencies ](https://i.postimg.cc/C5wMv8zh/15-dependencies.png)
 
+***Important:***
+**`All underlined packages must be at least the same version as the picture above, or later.`**
+
+### vue.config-builder.js
+
+Check if the following values **lintOnSave** and **VERSION** (into configureWebpack > plugins) are the same as bellow: 
+```javascript
+...
+return {
+...
+lintOnSave:  false, //must be false
+...
+configureWebpack: {
+...
+plugins: [
+...
+VERSION:  JSON.stringify(version || ('' + 'local dev').trim()), // check this value as well
+...
+```
+
+### node
+
+Install node dependencies on every project (admin, compose, etc.):
+```bash	
+npm istall
+```
 
 ### building 
+
+To build a project, a part of which will be mounted in docker production server, use: 
+```bash	
+npm run build
+```
+
 ## Setting up volumes in docker-compose.yaml
 
+
+
 ## sample of running local server
-
-# Links 
-
-
-Despite the fact that 
-
 
