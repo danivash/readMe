@@ -14,11 +14,7 @@
 
 # About
 
-This is a manual, how quickly and easy to run your local Corteza server without waste time. Follow exactly every step that are described bellow. This guide helps to run local environment for development and adding any futures that are necessary in Frontend with followed explanation of deployment to Production.
-
-
-This is a manual, how quickly and easy to run your local Corteza server without waste time. Follow exactly every step that are described bellow. This guide helps to run  local environment for development and adding any futures that are necessary in Frontend with followed explanation of deployment to Production.
-
+This is a manual on how to quickly and easily run your local Corteza server without wasting time. Follow each step described below exactly as written. This guide helps you set up a local environment for development and add any features necessary for the front-end, along with an explanation of how to deploy to production.
 
 # Setting up the local project
 
