@@ -36,6 +36,7 @@ Copy and then paste anywhere on your local Laptop. Now, according to
 ## Configure docker-compose.yaml
 
 Your docker-compose.yaml file supposed to be looked like: 
+
 ![docker file](https://i.postimg.cc/sfJFrXnh/2-docker-file.png)
 
 ***Important:***
@@ -53,6 +54,7 @@ Sample for admin index.html:
 "path-to-corteza-vue/admin/dist:/corteza/webapp/admin/index.html"
 ```
 For all folders it may look like:
+
 ![mounted dependencies](https://i.postimg.cc/9MFMYS08/17-docker-compose-should-be-3.png)
 
 ### VIRTUAL_HOST
@@ -77,6 +79,7 @@ Now it looks like:
 
 Change **DOMAIN** on the localhost, that you already set up in the ***docker-compose.yaml*** 
  *(by default is expected as 8080)* and should look like: 
+ 
 ![domain](https://i.postimg.cc/RFQY4sTB/5-domain.png)
 
 ### 2. Database
@@ -92,15 +95,18 @@ Check, if database is ready to be connected to docker server due to this command
 pg_isready   
 ```
 Successful output will look like that: 
+
 ![cmd output](https://i.postimg.cc/rsfYtDbZ/6-cmd-output.png)
 
 We can also connect to Database via **pg_Admin 4** or **CMD** (In this example via CMD) to ensure that all data were fetched correctly.
 Enter the command, that is below and connect as *"postgres"* user to database (**database name may be different, check pgAdmin 4**)
+
 ![connection to Database](https://i.postimg.cc/3x4bdJZ9/7-connection-to-DB.png)
 
 Then, enter database password (by default is: "1234" or "0000") .
 And now we can receive, for example, the user "Corteza Service" or any other that exists in the DB.
 If the output looks like this, the database data was retrieved successfully:
+
 ![data output](https://i.postimg.cc/B6shY5fw/8-data-output.png)
 
 ### Setting up the *DB_DSN* value in .env
@@ -113,6 +119,7 @@ Replace underlined values on your local:
 ![ configure DB_DSN ](https://i.postimg.cc/HnvBkfcf/9-configure-connection-to-DB.png)
 
 It might look like this: 
+
 ![ example DB_DSN ](https://i.postimg.cc/k41xQWJS/10-exemple-DB-DSN.png)
 
 ### 3. Authorization
@@ -128,6 +135,7 @@ Now you should install the official [Docker Desktop](https://docs.docker.com/des
 docker-compose up -d
 ```
 Launch the *localhost:8080* on your browser, and you will see Auth. page: 
+
 ![ Authorization page ](https://i.postimg.cc/vH6Wn1p1/12-auth-screen.png)
 
 ***Tip:***
@@ -135,6 +143,7 @@ Launch the *localhost:8080* on your browser, and you will see Auth. page:
 
 Log in **not with** Domain Credentials, but enter Email and corresponding Password users with admin permission. It might be **it-service** user.
 After that you will have access to your local CRM system:
+
 ![ main page ](https://i.postimg.cc/8cfrL3n8/13-crm-main-page.png)
 
 # Corteza-vue
@@ -160,6 +169,7 @@ window.CortezaAPI = 'http://localhost:8080/api'
 
 According your current Corteza-vue version, you have to pay your attention to 
 following dependencies:
+
 ![ dependencies ](https://i.postimg.cc/C5wMv8zh/15-dependencies.png)
 
 ***Important:***
@@ -196,6 +206,7 @@ To build a project, a part of which will be mounted in docker server, use:
 npm run build
 ```
 Now **`dist`** folder has been updated. All compiled code used by the docker for frontend rendering is located here.
+
 ![ folder after built project](https://i.postimg.cc/C5XWdZ9C/16-after-building.png)
 
 
