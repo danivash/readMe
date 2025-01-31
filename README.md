@@ -206,5 +206,3 @@ Now **`dist`** folder has been updated. All compiled code used by the docker for
 ![ folder after built project](https://i.postimg.cc/C5XWdZ9C/16-after-building.png)
 
 
-
-## sample of running local server
