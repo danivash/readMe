@@ -14,10 +14,7 @@
 
 # About
 
-This is a manual, how quickly and easy to run your local Corteza server without waste time. Follow exactly every step that are described bellow. This guide helps to run local environment for development and adding any futures that are necessary in Frontend with followed explanation of deployment to Production.
-
-
-This is a manual, how quickly and easy to run your local Corteza server without waste time. Follow exactly every step that are described bellow. This guide helps to run  local environment for development and adding any futures that are necessary in Frontend with followed explanation of deployment to Production.
+This is a manual on how to quickly and easily run your local Corteza server without wasting time. Follow each step described below exactly as written. This guide helps you set up a local environment for development and add any features necessary for the front-end, along with an explanation of how to deploy to production.
 
 
 # Setting up the local project
@@ -35,7 +32,7 @@ Copy and then paste anywhere on your local Laptop. Now, according to
 
 ## Configure docker-compose.yaml
 
-Your docker-compose.yaml file supposed to be looked like: 
+Your docker-compose.yaml file is supposed to be looked like: 
 
 ![docker file](https://i.postimg.cc/sfJFrXnh/2-docker-file.png)
 
@@ -51,7 +48,7 @@ In docker-compose.yaml we also have to mount more files into ***volumes*** .
 You have to mount all dependencies from **`dist`** folders of all projects (admin, compose, etc.). 
 Sample for admin index.html:
 ```bash
-"path-to-corteza-vue/admin/dist:/corteza/webapp/admin/index.html"
+"path-to-corteza-vue/admin/dist/index.html:/corteza/webapp/admin/index.html"
 ```
 For all folders it may look like:
 
@@ -157,7 +154,7 @@ Corteza-vue project may look like:
 
 ## Configure dependencies  
 
-Every one directory inside your `corteza-vue project` is **a separate local project** , that are supposed to be run independently  *on different localhosts*, for this reason we have to configure every project (admin, compose, etc.) **alone** but on **the same** way.	
+Every one directory inside your `corteza-vue project` is **a separate local project** , that is supposed to be run independently  *on different localhosts*, for this reason we have to configure every project (admin, compose, etc.) **alone** but on **the same** way.	
 
 ### config.js
 
@@ -165,6 +162,9 @@ Let's configure for example **Admin** "project", other projects could be set up 
 ```javascript
 window.CortezaAPI = 'http://localhost:8080/api'
 ```
+***Note:***
+*Due to this command the authorization process will be redirected to local docker server, that is running. Because of <a  href="#running-docker-server">completed authorization</a> over there, here this process will be skipped.*
+
 ### package.json
 
 According your current Corteza-vue version, you have to pay your attention to 
@@ -173,7 +173,7 @@ following dependencies:
 ![ dependencies ](https://i.postimg.cc/C5wMv8zh/15-dependencies.png)
 
 ***Important:***
-**`All underlined packages must be at least the same version as the picture above, or later.`**
+**`All underlined packages must be at least the same version as the picture above, or newer.`**
 
 ### vue.config-builder.js
 
@@ -201,7 +201,7 @@ npm istall
 
 ### building 
 
-To build a project, a part of which will be mounted in docker server, use: 
+To build a project (one folder), a part of which will be mounted in docker server, use: 
 ```bash	
 npm run build
 ```
