@@ -31,7 +31,7 @@ Copy and then paste anywhere on your local Laptop. Now, according to
 
 ## Configure docker-compose.yaml
 
-Your docker-compose.yaml file supposed to be looked like: 
+Your docker-compose.yaml file is supposed to be looked like: 
 
 ![docker file](https://i.postimg.cc/sfJFrXnh/2-docker-file.png)
 
@@ -47,7 +47,7 @@ In docker-compose.yaml we also have to mount more files into ***volumes*** .
 You have to mount all dependencies from **`dist`** folders of all projects (admin, compose, etc.). 
 Sample for admin index.html:
 ```bash
-"path-to-corteza-vue/admin/dist:/corteza/webapp/admin/index.html"
+"path-to-corteza-vue/admin/dist/index.html:/corteza/webapp/admin/index.html"
 ```
 For all folders it may look like:
 
@@ -146,14 +146,14 @@ After that you will have access to your local CRM system:
 
 ## Bit bucket
 
-Corteza-vue project may look like: 
+After copying the project from Bit bucket, your corteza-vue project may look like: 
 <p align="center">
 <img src="https://i.postimg.cc/52NLRHZ2/14-structure-vue-corteza.png" alt="HTML tutorial">  
 </p>
 
 ## Configure dependencies 
 
-Every one directory inside your `corteza-vue project` is **a separate local project** , that are supposed to be run independently  *on different localhosts*, for this reason we have to configure every project (admin, compose, etc.) **alone** but on **the same** way.	
+Every one directory inside your `corteza-vue project` is **a separate local project** , that is supposed to be run independently  *on different localhosts*, for this reason we have to configure every project (admin, compose, etc.) **alone** but on **the same** way.	
 
 ### config.js
 
@@ -161,6 +161,9 @@ Let's configure for example **Admin** "project", other projects could be set up 
 ```javascript
 window.CortezaAPI = 'http://localhost:8080/api'
 ```
+***Note:***
+*Due to this command the authorization process will be redirected to local docker server, that is running. Because of <a  href="#running-docker-server">completed authorization</a> over there, here this process will be skipped.*
+
 ### package.json
 
 According your current Corteza-vue version, you have to pay your attention to 
@@ -169,7 +172,7 @@ following dependencies:
 ![ dependencies ](https://i.postimg.cc/C5wMv8zh/15-dependencies.png)
 
 ***Important:***
-**`All underlined packages must be at least the same version as the picture above, or later.`**
+**`All underlined packages must be at least the same version as the picture above, or newer.`**
 
 ### vue.config-builder.js
 
