@@ -1,7 +1,8 @@
-<p align="center">
-  <img src="https://i.postimg.cc/FKfmF4fQ/inteco.png" />
+<p align="center" >
+  <img src="https://i.postimg.cc/FKfmF4fQ/inteco.png" /> 
+  <img src="https://i.postimg.cc/yYbq3rST/Corteza.png"  width="auto" height="30"/>
 </p>
-<h3  align="center">A quick guide to running a local Corteza server</h3>
+<h3  align="center"  >A quick guide to running a local Corteza server</h3>
 <p align="center">
 <a  href="https://devccrm.inteco.at/auth/login">Production</a>
 &middot;
