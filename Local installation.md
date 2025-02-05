@@ -68,7 +68,7 @@ Now it looks like:
 
 ## Configure .env
 
-![.env file](https://i.postimg.cc/HLMKPscj/4-env-file.png)
+![.env file](https://i.postimg.cc/Dwz7GXZq/4-env-file.png)
 
 ***Important:***
 **`The version may differ from template above.`**
